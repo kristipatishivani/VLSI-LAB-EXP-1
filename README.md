@@ -3,7 +3,18 @@ AIM: To simulate and synthesis Logic Gates,Adders and Subtractor using Xilinx IS
 
 APPARATUS REQUIRED: Xilinx 14.7 Spartan6 FPGA
 
-PROCEDURE: STEP:1 Start the Xilinx navigator, Select and Name the New project. STEP:2 Select the device family, device, package and speed. STEP:3 Select new source in the New Project and select Verilog Module as the Source type. STEP:4 Type the File Name and Click Next and then finish button. Type the code and save it. STEP:5 Select the Behavioral Simulation in the Source Window and click the check syntax. STEP:6 Click the simulation to simulate the program and give the inputs and verify the outputs as per the truth table. STEP:7 Select the Implementation in the Sources Window and select the required file in the Processes Window. STEP:8 Select Check Syntax from the Synthesize XST Process. Double Click in the Floorplan Area/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained. STEP:9 In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu. STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here. STEP:12 Load the Bit file into the SPARTAN 6 FPGA STEP:11 On the board, by giving required input, the LEDs starts to glow light, indicating the output.
+PROCEDURE: STEP:1 Start the Xilinx navigator, Select and Name the New project. 
+STEP:2 Select the device family, device, package and speed. 
+STEP:3 Select new source in the New Project and select Verilog Module as the Source type. 
+STEP:4 Type the File Name and Click Next and then finish button. Type the code and save it. 
+STEP:5 Select the Behavioral Simulation in the Source Window and click the check syntax. 
+STEP:6 Click the simulation to simulate the program and give the inputs and verify the outputs as per the truth table. 
+STEP:7 Select the Implementation in the Sources Window and select the required file in the Processes Window. 
+STEP:8 Select Check Syntax from the Synthesize XST Process. Double Click in the Floorplan Area/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained. 
+STEP:9 In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu. 
+STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here. 
+STEP:11 On the board, by giving required input, the LEDs starts to glow light, indicating the output.
+STEP:12 Load the Bit file into the SPARTAN 6 FPGA.
 
 Logic Diagram :
 
@@ -90,71 +101,72 @@ endmodule
 # Full Subtractor
 ```
 module fs(a,b,bin,d,bout);
-input a,b,bin; 
+input a,b,bin;
 output d,bout;
 wire w1,w2,w3;
-xor g1(w1,b,bin; 
-xor g2(d,w1,a);
-and g3(w2,a,~w1);
-and g4(w3,~b,bin);
-or g5(bout,w2,w3);
+xor(w1,a,b);
+xor(d,w1,bin);
+and(w2,~a,b);
+and(w3,~w1,bin);
+or(bout,w3,w2);
 endmodule
 ```
 # 8 Bit Ripple Carry Adder
 ```
-module ripplemod(a, b, cin, sum, cout);
-input [07:0] a;
-input [07:0] b;
-input cin;
-output [7:0]sum;
-output cout;
-wire[6:0] c;
-fulladd a1(a[0],b[0],cin,sum[0],c[0]);
-fulladd a2(a[1],b[1],c[0],sum[1],c[1]);
-fulladd a3(a[2],b[2],c[1],sum[2],c[2]);
-fulladd a4(a[3],b[3],c[2],sum[3],c[3]);
-fulladd a5(a[4],b[4],c[3],sum[4],c[4]);
-fulladd a6(a[5],b[5],c[4],sum[5],c[5]);
-fulladd a7(a[6],b[6],c[5],sum[6],c[6]);
-fulladd a8(a[7],b[7],c[6],sum[7],cout);
+module rippe_adder(S,Cout,X,Y,Cin);
+input [7:0] X,Y;
+input Cin;
+output [7:0] S;
+output Cout;
+wire w1,w2,w3,w4,w5,w6,w7;
+fulladder u1(S[0],w1,X[0],Y[0],Cin);
+fulladder u2(S[1],w2,X[1],Y[1],w1);
+fulladder u3(S[2],w3,X[2],Y[2],w2);
+fulladder u4(S[3],w4,X[3],Y[3],w3);
+fulladder u5(S[4],w5,X[4],Y[4],w4);
+fulladder u6(S[5],w6,X[5],Y[5],w5);
+fulladder u7(S[6],w7,X[6],Y[6],w6);
+fulladder u8(S[7],Cout,X[7],Y[7],w7);
 endmodule
-module fulladd(a, b, cin, sum, cout);
-input a;
-input b;
-input cin;
-output sum;
-output cout;
-assign sum=(a^b^cin);
-assign cout=((a&b)|(b&cin)|(a&cin));
+
+module fulladder(S,CO,X,Y,Ci);
+input X,Y,Ci;
+output S,CO;
+wire w1,w2,w3;
+xor G1(w1,X,Y);
+xor G2(S,w1,Ci);
+and G3(w2,X,Ci);
+and G4(w3,X,Y);
+or G5(CO,w3,w3);
 endmodule
 ```
 OUTPUT:
 # Logic Gates
 # And Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/4bf726cf-efed-493d-a22c-37516968afe1)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/dfcc96d4-c1c0-4c92-8868-04cb9fb10a0c)
 # Or Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/9c885f08-61b8-47ae-aea3-622c9c0a6731)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/bf325e6a-4493-417d-9a36-f1c77042581b)
 # Nand Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/440ed87c-fbbd-4a54-ae9d-1738a193922e)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/95918499-37ac-46f4-a98e-e7eeb87f3453)
 # Nor Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/87cf7e59-2450-4fdc-8f80-c5fcfc626564)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/a8175373-7740-42d5-8525-02d999bfb8f0)
 # Xor Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/15fe78df-e0f5-4a0e-990a-5620ec45f685)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/d95850e9-c740-4991-85c9-fe7f0fab70d6)
 # Xnor Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/b2f72798-0a11-4eeb-80a4-a07177218a10)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/63bbf01f-2f16-4a42-8e62-0c6086cfe4e8)
 # Not Gate
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/69d1e008-d356-438d-b06f-42e319cc6488)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/1d7072be-d5d8-4e09-ad6f-e5182f8c4f9f)
 # Half Adder
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/c165c219-2fe8-479b-b5e5-25ffc5dc9a27)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/d397a5cc-c568-4d78-8e6f-9685a5d52692)
 # Full Adder
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/c5abfe9d-1809-4fb6-9757-5a490eb5fe50)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/39e406df-1c06-43dc-9f97-e068f5decdc7)
 # Half Subtractor
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/cb388612-2022-4923-a86a-b6d3fd4e6b2e)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/5b384dcc-dc72-466c-9f67-463bf305a500)
 # Full Subtractor
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/1d20e8d9-8f6f-443f-8d08-add9004f8720)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/8af30d27-62d1-46dc-afdb-cb45e67537f4)
 # 8 Bit Ripple Carry Adder
-![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/f06059b6-3229-4b75-a19b-6bad9a8024ac)
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/267b59fd-7787-45bd-af69-65e3e03686d6)
 
 RESULT:
-Hence Logic Gates,Adders and Subtractor are simulated and synthesised using Xilinx ISE.
+        Hence Logic Gates,Adders and Subtractor are simulated and synthesised using Xilinx ISE.
 
