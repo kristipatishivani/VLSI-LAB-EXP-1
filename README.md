@@ -8,6 +8,7 @@ AIM: To simulate Logic Gates ,Adders and Subtractors using Vivado 2023.2.
 APPARATUS REQUIRED: VIVADO 2023.2
 
 PROCEDURE: 
+
 STEP:1 Start the Xilinx navigator, Select and Name the New project. 
 
 STEP:2 Select the device family, device, package and speed. 
@@ -54,6 +55,32 @@ endmodule
 OUTPUT WAVEFORM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/a62e4538-0094-4126-b762-1a1fdc1e8931)
+
+**HALF ADDER
+
+LOGIC DIAGRAM**
+
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/8dbaa111-3916-4e39-bd03-852cd2d76982)
+
+VERILOG CODE
+```
+module half_adder(a,b,sum,carry);
+
+input a,b;
+
+output sum,carry;
+
+xor g1(sum,a,b);
+
+and g2(carry,a,b);
+
+endmodule
+```
+OUTPUT WAVEFORM
+
+![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/d325278a-9829-4e71-b638-70f7285a1dcd)
+
+
 
 RESULT:
         Hence Logic Gates,Adders and Subtractor are simulated and synthesised using Xilinx ISE.
