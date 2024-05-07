@@ -57,9 +57,7 @@ OUTPUT WAVEFORM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/a62e4538-0094-4126-b762-1a1fdc1e8931)
 
-**HALF ADDER
-
-LOGIC DIAGRAM**
+HALF ADDER LOGIC DIAGRAM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/8dbaa111-3916-4e39-bd03-852cd2d76982)
 
@@ -81,9 +79,7 @@ OUTPUT WAVEFORM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/d325278a-9829-4e71-b638-70f7285a1dcd)
 
-**FULL ADDER
-
-LOGIC DIAGRAM**
+FULL ADDER LOGIC DIAGRAM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/8713d8b5-e4b6-4c9d-a00b-41eae22c9a2c)
 
@@ -113,9 +109,7 @@ OUTPUT WAVEFORM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/5c2e8258-da0f-4afd-98eb-f56bd8c7ec30)
 
-**HALF SUBTRACTOR
-
-LOGIC DIAGRAM**
+HALF SUBTRACTOR LOGIC DIAGRAM
 
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/a2ece9c5-3ea5-4656-ac14-51ae2f150460)
 
