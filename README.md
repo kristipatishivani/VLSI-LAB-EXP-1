@@ -1,5 +1,6 @@
 EXP-1
 date:
+
                                                SIMULATION OF LOGIC GATES ,ADDERS AND SUBTRACTORS
                                                
 AIM: To simulate Logic Gates ,Adders and Subtractors using Vivado 2023.2.
@@ -33,6 +34,7 @@ STEP:12 Load the Bit file into the SPARTAN 6 FPGA.
 
 
 LOGIC GATES LOGIC DIAGRAM:
+
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/ee17970c-3ac9-4603-881b-88e2825f41a4)
 
  VERILOG CODE
@@ -50,6 +52,7 @@ not(notgate,a);
 endmodule
 ```
 OUTPUT WAVEFORM
+
 ![image](https://github.com/kristipatishivani/VLSI-LAB-EXP-1/assets/161432255/a62e4538-0094-4126-b762-1a1fdc1e8931)
 
 RESULT:
